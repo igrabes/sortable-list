@@ -4,7 +4,7 @@
 
 $(document).ready(function(){
 $('#books').sortable({
-axis: 'y',
+axis: 'x,y',
 dropOnEmpty: false,
 handle: '.handle',
 cursor: 'crosshair',
@@ -30,7 +30,17 @@ url: '/books/sort'})
 <ul id="books"> 
 	<% @books.each do |book| %>
   	<li id="book_<%= book.id %>">
-			<span class="handle">[drag]</span><%= book.name %></li>
+		<% if admin? %>
+			<span class="handle">[drag]</span>
+		<% end %>
+			<%= book.name %> 
+		<% if admin? %>
+			 <%= link_to 'Show', book %>
+			<%= link_to 'Edit', edit_book_path(book) %>
+			<%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
+		<% end %>
+			</li>
+	
 	<% end %>
 </ul>
 
