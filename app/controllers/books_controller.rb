@@ -5,7 +5,7 @@ class BooksController < ApplicationController
     @books = Book.order('books.position ASC')
      @tag = Tag.find(params[:tag_id]) if params[:tag_id]
       if params[:search].blank?
-        @books = (@tag ? @tag.books : Book)
+        @books = (@tag ? @tag.books : Book.order('books.position ASC'))
       else
         @books = Book.search_published(params[:search], params[:tag_id])
       end
