@@ -3,6 +3,16 @@ class BooksController < ApplicationController
   # GET /books.xml
   def index
     @books = Book.order('books.position ASC')
+     @tag = Tag.find(params[:tag_id]) if params[:tag_id]
+      if params[:search].blank?
+        @books = (@tag ? @tag.books : Book)
+      else
+        @books = Book.search_published(params[:search], params[:tag_id])
+      end
+      respond_to do |format|
+        format.html { @books = @books.paginate(:page => params[:page], :per_page => books_per_page) }
+        format.rss
+      end
   end
 
   def sort
@@ -83,6 +93,16 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(books_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  private
+  
+  def books_per_page
+    case params[:view]
+    when "list" then 40
+    when "grid" then 24
+    else 10
     end
   end
 end

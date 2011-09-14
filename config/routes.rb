@@ -3,6 +3,9 @@ Books::Application.routes.draw do
   root to: "books#index"
   resources :books do
     post :sort, :on => :collection
+    
+    
+  match "tags/:id" => redirect("/?tag_id=%{id}")
   end
 
   # The priority is based upon order of creation:

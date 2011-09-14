@@ -30,18 +30,27 @@ url: '/books/sort'})
 <ul id="books"> 
 	<% @books.each do |book| %>
   	<li id="book_<%= book.id %>">
-		<% if admin? %>
+		
 			<span class="handle">[drag]</span>
-		<% end %>
+	
 			<%= book.name %> 
-		<% if admin? %>
 			 <%= link_to 'Show', book %>
 			<%= link_to 'Edit', edit_book_path(book) %>
 			<%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
-		<% end %>
+	
 			</li>
 	
 	<% end %>
 </ul>
+
+
+<div class="categories">
+  <h2>Categories</h2>
+  <ul>
+  <% for tag in Tag.order("name") %>
+    <li><%= link_to_unless(params[:tag_id].to_i == tag.id, tag.display_name, params.merge(:tag_id => tag.id, :page => nil)) %></li>
+  <% end %>
+  </ul>
+</div>
 
 <%= link_to 'New book', new_book_path %>
