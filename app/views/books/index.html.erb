@@ -26,31 +26,37 @@ url: '/books/sort'})
 <% end %>
 <% end %>
 <h1>Listing books</h1>
-
-<ul id="books"> 
-	<% @books.each do |book| %>
-  	<li id="book_<%= book.id %>">
-		
-			<span class="handle">[drag]</span>
+<div class="content">
+  <div class="side">
+		<div class="categories">
+		  <h2>Categories</h2>
+		  <ul>
+		  <% for tag in Tag.order("name") %>
+		    <li><%= link_to_unless(params[:tag_id].to_i == tag.id, tag.display_name, params.merge(:tag_id => tag.id, :page => nil)) %></li>
+		  <% end %>
+		  </ul>
+		</div>
+	</div>
 	
-			<%= book.name %> 
-			 <%= link_to 'Show', book %>
-			<%= link_to 'Edit', edit_book_path(book) %>
-			<%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
-	
-			</li>
-	
-	<% end %>
-</ul>
-
-
-<div class="categories">
-  <h2>Categories</h2>
-  <ul>
-  <% for tag in Tag.order("name") %>
-    <li><%= link_to_unless(params[:tag_id].to_i == tag.id, tag.display_name, params.merge(:tag_id => tag.id, :page => nil)) %></li>
-  <% end %>
-  </ul>
+	<div class="episodes">
+		 <div class="filters">
+        <strong>Filtering:</strong>
+					<% if @tag %>
+	          <span class="filter"><%= @tag.display_name %> <%= link_to "x", params.merge(:tag_id => nil, :page => nil) %></span>
+	        <% end %>
+	   </div>
+		<ul id="books">
+			<% @books.each do |book| %>
+		  	<li id="book_<%= book.id %>">
+					<span class="handle">[drag]</span>
+					<%= book.name %> 
+					 <%= link_to 'Show', book %>
+					<%= link_to 'Edit', edit_book_path(book) %>
+					<%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
+					</li>
+			<% end %>
+		</ul>
+	</div>
 </div>
 
 <%= link_to 'New book', new_book_path %>

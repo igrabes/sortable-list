@@ -1,1 +1,82 @@
 .handle:hover{cursor: move;}
+
+.content {
+  margin: 0 100px;
+}
+
+.content {
+  position: relative;
+}
+
+/*** SIDE ***/
+
+.side {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/*** CATEGORIES ***/
+
+.categories ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #BBB;
+  border-top: none;
+  padding: 5px 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+}
+
+.categories li {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.categories h2 {
+  padding: 4px 20px;
+  margin: 0;
+  font-weight: normal;
+  color: #444;
+  font-size: 14px;
+  text-align: center;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  -webkit-border-top-left-radius: 6px;
+  -webkit-border-top-right-radius: 6px;
+  -moz-border-radius-topleft: 6px;
+  -moz-border-radius-topright: 6px;
+  border: solid 1px #BBB;
+  border-bottom-color: #AAA;
+  background-color: #DDD;
+  background: -webkit-gradient(linear, left top, left bottom, from(#EEE), to(#CCC));
+  background: -moz-linear-gradient(top,  #EEE, #CCC);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEE', endColorstr='#CCC');
+}
+
+
+/*** FILTERS ***/
+
+.episodes .filters {
+  margin-bottom: 15px;
+}
+
+.episodes .filter {
+  border: solid 1px #999;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  background-color: #DDD;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.episodes .filter a {
+  padding-left: 5px;
+}
