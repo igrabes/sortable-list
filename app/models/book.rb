@@ -13,6 +13,10 @@ class Book < ActiveRecord::Base
   
   private
   
+  def tag_names
+    tags.map(&:name).join(' ')
+  end
+  
   def assign_tags
     if @tag_names
       self.tags = @tag_names.split(/\s+/).map do |name|
