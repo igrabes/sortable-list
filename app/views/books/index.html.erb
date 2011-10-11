@@ -50,10 +50,13 @@ url: '/books/sort'})
 			<% @books.each do |book| %>
 		  	<li id="book_<%= book.id %>">
 					<span class="handle">[drag]</span>
+					<b>Votes: <%= book.votes.count %></b> |
 					<%= book.name %> 
 					 <%= link_to 'Show', book %>
 					<%= link_to 'Edit', edit_book_path(book) %>
 					<%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
+					| 
+					
 					  
 					</li>
 			<% end %>
