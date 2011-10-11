@@ -1,8 +1,16 @@
 Books::Application.routes.draw do
   
-  root to: "books#index"
+  
+  match '/about' => 'pages#about'  
+  match '/contact' => 'pages#contact' 
+
+  root :to => "books#index" 
+  
+  resources :votes
+  devise_for :users
   resources :books do
     post :sort, :on => :collection
+    post :vote_for, :on => :member
     
     
   match "tags/:id" => redirect("/?tag_id=%{id}")

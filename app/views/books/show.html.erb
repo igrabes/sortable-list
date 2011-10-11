@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+	<b><%= @votes.count %></b> |
+  Name:
   <%= @book.name %>
+	<%= link_to('vote up this book!', vote_for_book_path(@book), :method => :post) %> 
+	
 </p>
 
 

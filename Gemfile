@@ -3,7 +3,10 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.9'
 gem 'acts_as_list'
 gem 'cancan'
-gem 'will_paginate'
+gem 'will_paginate' 
+gem 'devise', '1.1.7' 
+gem 'thumbs_up'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -11,7 +14,9 @@ gem 'will_paginate'
 gem 'sqlite3'
 
 gem "rspec-rails", :group => [:test, :development]
+
 group :test do
+  gem 'simplecov', :require => false
   gem "factory_girl_rails"
   gem "capybara"
   gem "guard-rspec"

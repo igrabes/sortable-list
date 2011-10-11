@@ -3,10 +3,18 @@
 <head>
   <title>Books</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag "jquery.js", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js", "rails.js" %>
+  <%= javascript_include_tag "jquery.js", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js", "rails.js", :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <%= yield :javascript %>
+<div id="user_nav">
+  <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to_unless_current "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to_unless_current "Sign up", new_user_registration_path %> or <%= link_to_unless_current "Login", new_user_session_path %>
+  <% end %>
+</div>
 <body>
 
 <%= yield %>

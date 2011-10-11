@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
   
-  acts_as_list
+  acts_as_list   
+  acts_as_voteable
   
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings

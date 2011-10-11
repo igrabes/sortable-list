@@ -29,6 +29,11 @@ class BooksController < ApplicationController
   # GET /books/1.xml
   def show
     @book = Book.find(params[:id])
+    @votes = @book.votes
+    #working on figuring out how to query all of the votes in the db
+    # @votes = Votes.tally({ :at_least => 1, :at_most => 10000,})
+  
+  
 
     respond_to do |format|
       format.html # show.html.erb
@@ -94,7 +99,22 @@ class BooksController < ApplicationController
       format.html { redirect_to(books_url) }
       format.xml  { head :ok }
     end
-  end
+  end  
+  
+  def vote_for
+    begin
+       if current_user.nil?
+         redirect_to new_user_session_path
+       else
+         @vote_for = current_user.vote_for(@book = Book.find(params[:id]))
+         @vote_for.save!
+         redirect_to book_path(@book)
+       end
+     rescue ActiveRecord::RecordInvalid
+         render :nothing => true, :status => 404
+     end   
+  end      
+  
   
   private
   
