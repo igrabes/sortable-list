@@ -31,10 +31,12 @@ class BooksController < ApplicationController
   # GET /books/1.xml
   def show
     @book = Book.find(params[:id])
-    @votes = @book.votes
-    #working on figuring out how to query all of the votes in the db
-    # @votes = Votes.tally({ :at_least => 1, :at_most => 10000,})
-  
+    @votes = @book.votes(:true)
+    
+    # #working on figuring out how to query all of the votes in the db
+    # @books = Book.tally({ :at_least => 1, :at_most => 10000, :conditions => true}) 
+    # @votes = Vote.tally({ :at_least => 1, :at_most => 10000})
+    
   
 
     respond_to do |format|
@@ -115,7 +117,25 @@ class BooksController < ApplicationController
      rescue ActiveRecord::RecordInvalid
          render :nothing => true, :status => 404
      end   
-  end      
+  end 
+   
+  
+  def vote_against
+    begin
+      if current_user.nil?
+        redirect_to new_user_session_path
+      else
+        @vote_against = current_user.vote_against(@book = Book.find(params[:id]))
+       # raise p @vote_against.inspect
+        redirect_to book_path(@book)
+      end
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404
+    end
+  end          
+  
+ 
+ 
   
   
   private

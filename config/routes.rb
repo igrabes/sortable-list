@@ -11,6 +11,7 @@ Books::Application.routes.draw do
   resources :books do
     post :sort, :on => :collection
     post :vote_for, :on => :member
+    post :vote_against, :on => :member
     
     
   match "tags/:id" => redirect("/?tag_id=%{id}")

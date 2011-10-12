@@ -1,12 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-	<b><%= @votes.count %></b> |
+	<b><%= @book.plusminus %></b> |
   Name:
   <%= @book.name %>
 	<%= link_to('vote up this book!', vote_for_book_path(@book), :method => :post) %> 
+	<%= link_to('vote down this book!', vote_against_book_path(@book), :method => :post) %> 
 	
 </p>
+
 
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
