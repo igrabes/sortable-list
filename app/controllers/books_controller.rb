@@ -106,38 +106,43 @@ class BooksController < ApplicationController
   end  
   
   def vote_for
-    begin
-       if current_user.nil?
-         redirect_to new_user_session_path
-       else
-         @vote_for = current_user.vote_for(@book = Book.find(params[:id]))
-         @vote_for.save!
-         redirect_to book_path(@book)
-       end
-     rescue ActiveRecord::RecordInvalid
-         render :nothing => true, :status => 404
-     end   
-  end 
-   
-  
-  def vote_against
-    begin
-      if current_user.nil?
-        redirect_to new_user_session_path
-      else
-        @vote_against = current_user.vote_against(@book = Book.find(params[:id]))
-       # raise p @vote_against.inspect
-        redirect_to book_path(@book)
+      begin
+        if current_user.nil?
+           redirect_to new_user_session_path 
+        else    
+          if current_user.voted_on?(@book = Book.find(params[:id]))
+            flash[:notice] = "You already voted"
+          else
+            @vote_for = current_user.vote_for(@book = Book.find(params[:id]))
+            @vote_for.save!
+          end
+          redirect_to @book  
+        end
+      rescue ActiveRecord::RecordInvalid
+        render :nothing => true, :status => 404 
       end
-    rescue ActiveRecord::RecordInvalid
-      render :nothing => true, :status => 404
+    end 
+
+
+    def vote_against
+      begin
+          if current_user.nil?
+            redirect_to new_user_session_path
+          else
+            if current_user.voted_on?(@book = Book.find(params[:id])) 
+              flash[:notice] = "You already voted"
+             else 
+              @vote_against = current_user.vote_against(@book = Book.find(params[:id]))
+              # raise p @vote_against.inspect 
+            end  
+            redirect_to @book 
+          end
+        rescue ActiveRecord::RecordInvalid 
+          render :nothing => true, :status => 404
+      end
     end
-  end          
-  
- 
- 
-  
-  
+       
+      
   private
   
   def books_per_page
