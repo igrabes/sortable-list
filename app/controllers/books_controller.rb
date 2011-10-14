@@ -110,10 +110,10 @@ class BooksController < ApplicationController
         if current_user.nil?
            redirect_to new_user_session_path 
         else    
-          if current_user.voted_on?(@book = Book.find(params[:id]))
-            flash[:notice] = "You already voted"
+          if current_user.voted_for?(@book = Book.find(params[:id]))  
+            flash[:notice] = "You already voted up"
           else
-            @vote_for = current_user.vote_for(@book = Book.find(params[:id]))
+            @vote_for = current_user.vote_exclusively_for(@book = Book.find(params[:id]))
             @vote_for.save!
           end
           redirect_to @book  
@@ -129,10 +129,11 @@ class BooksController < ApplicationController
           if current_user.nil?
             redirect_to new_user_session_path
           else
-            if current_user.voted_on?(@book = Book.find(params[:id])) 
-              flash[:notice] = "You already voted"
+            if current_user.voted_against?(@book = Book.find(params[:id]))
+              # @vote_for = current_user.vote_exclusively_for(@book = Book.find(params[:id]))
+              flash[:notice] = "You already voted down"
              else 
-              @vote_against = current_user.vote_against(@book = Book.find(params[:id]))
+              @vote_against = current_user.vote_exclusively_against(@book = Book.find(params[:id]))
               # raise p @vote_against.inspect 
             end  
             redirect_to @book 
