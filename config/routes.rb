@@ -1,6 +1,8 @@
 Books::Application.routes.draw do
   
   
+  get "questions/create"
+
   match '/about' => 'pages#about'  
   match '/contact' => 'pages#contact' 
 
@@ -17,7 +19,7 @@ Books::Application.routes.draw do
     post :sort, :on => :collection
     post :vote_for, :on => :member
     post :vote_against, :on => :member
-    
+    resources :questions
     
   match "tags/:id" => redirect("/?tag_id=%{id}")
   end

@@ -3,10 +3,13 @@ class Book < ActiveRecord::Base
   acts_as_list   
   acts_as_voteable
   
+  has_many :questions
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
   attr_writer :tag_names
-  after_save :assign_tags
+  after_save :assign_tags  
+  
+  accepts_nested_attributes_for :questions
   
   def tag_names
     @tag_names || tags.map(&:name).join(' ')

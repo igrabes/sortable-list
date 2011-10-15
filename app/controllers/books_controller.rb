@@ -43,7 +43,10 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new
+    @book = Book.new 
+    5.times do
+     question = @book.questions.build 
+   end 
 
     respond_to do |format|
       format.html # new.html.erb
@@ -56,7 +59,8 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(params[:book])
+    @book = Book.new(params[:book]) 
+    # raise p @book.inspect 
 
     respond_to do |format|
       if @book.save

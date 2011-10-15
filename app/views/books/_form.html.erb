@@ -18,7 +18,13 @@
 	<div class="field">
     <%= f.label :tag_names %><br />
     <%= f.text_field :tag_names %>
-  </div>
+  </div> 
+	<div class="field">
+		<%= f.fields_for :questions do |builder| %>
+			<%= render 'question_fields', :f => builder %>
+			<br \>
+	  <% end %>
+	</div>
   <div class="actions">
     <%= f.submit %>
   </div>

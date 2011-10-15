@@ -1,0 +1,4 @@
+<% @book.questions.each do |q| %>
+	<%= link_to q.question, book_question_path(@book.id, q.id) %>
+	<br \> 
+<% end %>
