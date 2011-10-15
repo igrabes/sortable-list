@@ -51,11 +51,10 @@ url: '/books/sort'})
 		  	<li id="book_<%= book.id %>">
 					<span class="handle">[drag]</span>
 					<b>Votes: <%= book.plusminus %></b> |
-					<%= book.name %> 
-					 <%= link_to 'Show', book %>
+					<%= link_to book.name, book %> 
 					<%= link_to 'Edit', edit_book_path(book) %>
 					<%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
-					| 
+					
 					
 					  
 					</li>

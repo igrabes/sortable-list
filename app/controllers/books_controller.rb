@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  # GET /books
-  # GET /books.xml
+  
+ 
   def index
     @books = Book.order('books.position ASC')
      @tag = Tag.find(params[:tag_id]) if params[:tag_id]
@@ -22,13 +22,10 @@ class BooksController < ApplicationController
     @books.each do |book|
       book.position = params['book'].index(book.id.to_s) + 1
       book.save
+    end
+    render :nothing => true
   end
 
-  render :nothing => true
-  end
-
-  # GET /books/1
-  # GET /books/1.xml
   def show
     @book = Book.find(params[:id])
     @votes = @book.votes(:true)
@@ -45,8 +42,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # GET /books/new
-  # GET /books/new.xml
   def new
     @book = Book.new
 
@@ -56,13 +51,10 @@ class BooksController < ApplicationController
     end
   end
 
-  # GET /books/1/edit
   def edit
     @book = Book.find(params[:id])
   end
 
-  # POST /books
-  # POST /books.xml
   def create
     @book = Book.new(params[:book])
 
@@ -77,8 +69,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # PUT /books/1
-  # PUT /books/1.xml
   def update
     @book = Book.find(params[:id])
 
@@ -93,8 +83,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # DELETE /books/1
-  # DELETE /books/1.xml
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
@@ -106,44 +94,41 @@ class BooksController < ApplicationController
   end  
   
   def vote_for
-      begin
-        if current_user.nil?
-           redirect_to new_user_session_path 
-        else    
-          if current_user.voted_for?(@book = Book.find(params[:id]))  
-            flash[:notice] = "You already voted up"
-          else
-            @vote_for = current_user.vote_exclusively_for(@book = Book.find(params[:id]))
-            @vote_for.save!
-          end
-          redirect_to @book  
+    begin
+      if current_user.nil?
+        deny_access  
+      else    
+        if current_user.voted_for?(@book = Book.find(params[:id]))  
+          flash[:notice] = "You already voted up"
+        else
+          @vote_for = current_user.vote_exclusively_for(@book = Book.find(params[:id]))
+          @vote_for.save!
         end
-      rescue ActiveRecord::RecordInvalid
-        render :nothing => true, :status => 404 
+          redirect_to @book  
       end
-    end 
-
-
-    def vote_against
-      begin
-          if current_user.nil?
-            redirect_to new_user_session_path
-          else
-            if current_user.voted_against?(@book = Book.find(params[:id]))
-              # @vote_for = current_user.vote_exclusively_for(@book = Book.find(params[:id]))
-              flash[:notice] = "You already voted down"
-             else 
-              @vote_against = current_user.vote_exclusively_against(@book = Book.find(params[:id]))
-              # raise p @vote_against.inspect 
-            end  
-            redirect_to @book 
-          end
-        rescue ActiveRecord::RecordInvalid 
-          render :nothing => true, :status => 404
-      end
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404 
     end
-       
-      
+  end 
+
+  def vote_against
+    begin
+      if current_user.nil?
+        deny_access
+      else
+        if current_user.voted_against?(@book = Book.find(params[:id]))
+          flash[:notice] = "You already voted down"
+        else 
+          @vote_against = current_user.vote_exclusively_against(@book = Book.find(params[:id]))
+          # raise p @vote_against.inspect 
+        end  
+        redirect_to @book 
+      end
+    rescue ActiveRecord::RecordInvalid 
+      render :nothing => true, :status => 404
+    end
+  end
+          
   private
   
   def books_per_page
@@ -153,4 +138,5 @@ class BooksController < ApplicationController
     else 10
     end
   end
+
 end

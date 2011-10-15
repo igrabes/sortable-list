@@ -7,7 +7,12 @@ Books::Application.routes.draw do
   root :to => "books#index" 
   
   resources :votes
-  devise_for :users
+  devise_for :users 
+  
+  # namespace :user do
+  #     root :to => "books#show"
+  #   end
+  
   resources :books do
     post :sort, :on => :collection
     post :vote_for, :on => :member
