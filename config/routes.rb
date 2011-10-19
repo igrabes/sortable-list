@@ -1,27 +1,29 @@
 Books::Application.routes.draw do
   
   
-  get "questions/create"
-
+  match '/index' => 'pages#index'
   match '/about' => 'pages#about'  
   match '/contact' => 'pages#contact' 
 
-  root :to => "books#index" 
+  root :to => "pages#index" 
   
   resources :votes
   devise_for :users 
-  
-  # namespace :user do
-  #     root :to => "books#show"
-  #   end
+ 
   
   resources :books do
     post :sort, :on => :collection
     post :vote_for, :on => :member
     post :vote_against, :on => :member
-    resources :questions
+    resources :questions do
+      resources :answers do
+        post :vote_for, :on => :member
+        post :vote_against, :on => :member
+     
     
   match "tags/:id" => redirect("/?tag_id=%{id}")
+   end   
+  end
   end
 
   # The priority is based upon order of creation:

@@ -139,7 +139,7 @@ class BooksController < ApplicationController
     case params[:view]
     when "list" then 40
     when "grid" then 24
-    else 10
+    else 15
     end
   end
 

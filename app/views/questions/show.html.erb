@@ -1,4 +1,19 @@
 <p>This is the Question:</p>
 <%= @question.question %>
 
-<p>Enter your answer here:</p>
+<p>Enter your answer here:</p> 
+
+<% if current_user.nil? %>
+<%  %>
+	<p>Please <%= link_to "Sign Up", new_user_registration_path %> or <%= link_to "Login", new_user_session_path %> to submit an answer and get feedback</p>
+<% else %>
+	<%= form_for(:answer, :url => book_question_answers_path(@book, @question)) do |f| %>
+	<div class="field">
+	    <%= text_area_tag "answers[#{@question.id}]" %>
+	 		<%= f.hidden_field :user_id %> 
+  </div>
+ 		<%= submit_tag("Submit") %>
+	<% end %>
+<% end %>   
+
+

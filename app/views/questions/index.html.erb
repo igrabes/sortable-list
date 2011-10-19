@@ -1,4 +1,11 @@
+<br \>
+<b>Questions:</b>
+<br \>
+
 <% @book.questions.each do |q| %>
-	<%= link_to q.question, book_question_path(@book.id, q.id) %>
+	<%= q.question %>
+	<%= link_to "Submit an Answer", book_question_path(@book.id, q.id) %>
+	Or
+	<%= link_to "Review Answers", book_question_answers_path(@book.id, q.id) %>
 	<br \> 
-<% end %>
+<% end %> 

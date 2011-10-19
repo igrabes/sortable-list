@@ -8,7 +8,7 @@
 </head>
 <%= yield :javascript %>
 <div id="user_nav"> 
-	<b><%= link_to "Home", root_path %></b>  
+	<b><%= link_to_unless_current "Home", root_path %></b>  
 	<br \>
 	<br \> 
   <% if user_signed_in? %>

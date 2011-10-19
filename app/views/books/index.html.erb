@@ -49,11 +49,15 @@ url: '/books/sort'})
 		<ul id="books">
 			<% @books.each do |book| %>
 		  	<li id="book_<%= book.id %>">
+				<% if admin? %> 
 					<span class="handle">[drag]</span>
-					<b>Votes: <%= book.plusminus %></b> |
-					<%= link_to book.name, book %> 
-					<%= link_to 'Edit', edit_book_path(book) %>
-					<%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
+				<% end %> 
+					<%= book.name %>
+					<%= link_to "View Questions for this Book", book_questions_path(book) %> 
+					<% if admin? %>
+						<%= link_to 'Edit', edit_book_path(book) %>
+						<%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
+					<% end %>
 					
 					
 					  
@@ -63,4 +67,6 @@ url: '/books/sort'})
 	</div>
 </div>
 
-<%= link_to 'New book', new_book_path %>
+<% if admin? %>
+	<%= link_to 'New book', new_book_path %>
+<% end %>

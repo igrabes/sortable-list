@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   
   def show
     @book = Book.find(params[:book_id]) 
-    @question = @book.questions.find(params[:id]) 
+    @question = @book.questions.find(params[:id])
   end
   
   def new

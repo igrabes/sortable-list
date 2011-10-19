@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base 
   
+  has_many :answers
   acts_as_voter
   
   # Include default devise modules. Others available are:

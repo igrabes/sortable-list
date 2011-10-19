@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery 
   include SessionsHelper
   
+  helper_method :admin?
+  
   def after_sign_in_path_for(resource_or_scope)
     case resource_or_scope  
     when :user, User
@@ -55,17 +57,21 @@ class ApplicationController < ActionController::Base
     #       u
     #     end 
  
-  # def authorize
-  #         unless admin?
-  #           flash[:error] = "unauthorized access"
-  #           redirect_to root_path
-  #           false
-  #         end
-  #       end
-  #       
-  #       def admin?
-  #         session[:password] == "test"
-  #   end                               
+  def authorize
+    unless admin?
+      flash[:error] = "unauthorized access"
+      redirect_to root_path
+      false
+    end
+  end
+          
+  def admin?
+    if current_user.nil?
+      return false
+    else
+    current_user.email == "ian.grabill@gmail.com"
+    end
+  end                               
 
 
 
