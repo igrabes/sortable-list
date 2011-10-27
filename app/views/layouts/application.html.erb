@@ -2,25 +2,34 @@
 <html>
 <head>
   <title>Books</title>
-  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag 'bootstrap.css' %>
   <%= javascript_include_tag "jquery.js", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js", "rails.js", :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <%= yield :javascript %>
-<div id="user_nav"> 
-	<b><%= link_to_unless_current "Home", root_path %></b>  
-	<br \>
-	<br \> 
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to_unless_current "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to_unless_current "Sign up", new_user_registration_path %> or <%= link_to_unless_current "Login", new_user_session_path %>
-  <% end %>
+<div class="topbar-inner">
+	<div class="container">
+		<div class="span12">
+			  <h3><%= link_to "Preptly", root_path, :class => "brand" %></h3>
+	  	<ul class="nav">
+				<li><%= link_to_unless_current "Home", root_path %></li>
+				<li><%= link_to_unless_current"About Us", about_path %></li>
+				<li><%= link_to_unless_current "Contact Us", contact_path %></li>
+			</ul>
+		</div>
+		<div class="span2"> 
+			<% if user_signed_in? %>
+		    Signed in as <%= current_user.email %>. Not you?
+		    <%= link_to_unless_current "Sign out", destroy_user_session_path, :method => :delete %>
+		  <% else %>
+		    <%= link_to_unless_current "Sign up", new_user_registration_path %> or <%= link_to_unless_current "Login", new_user_session_path %>
+		  <% end %>
+		</div>
+	</div>
 </div>
 <body>
-
-<%= yield %>
-
+<div class="container">
+	<%= yield %>
+</div>
 </body>
 </html>

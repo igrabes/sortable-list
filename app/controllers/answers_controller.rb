@@ -8,29 +8,29 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
   end 
   
-  
   def new
     @book = Book.find(params[:book_id])
-
+     
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @answer }
     end
   end
   
-  
   def create 
-      store_location
-      @book = Book.find(params[:book_id])   
+      store_location  
       
      if current_user.nil?
+       cookies[:answer_entry] = { :value => params[:answers] }
+       # raise p cookies[:answer_entry].inspect 
        deny_access
      else 
        params[:answers].each do |question_id, answer_text|
          next if answer_text.blank?
          question = Question.find(question_id)
-         question.answers.create!(:answer => answer_text, :user_id => current_user )  
-         redirect_to book_questions_path(@book)
+         question.answers.create!(:answer => answer_text, :user_id => current_user )
+         raise p question.answer
+         redirect_to book_questions_path(@book), :notice => "You have successfully submitted your Answer, please answer more!"
        end
       end 
       #need to add a redirect here that will redirect back to the page the user was just on
@@ -73,7 +73,6 @@ class AnswersController < ApplicationController
       render :nothing => true, :status => 404
     end
   end 
-
 
 end
          

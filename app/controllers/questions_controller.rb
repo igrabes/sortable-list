@@ -7,6 +7,18 @@ class QuestionsController < ApplicationController
   def show
     @book = Book.find(params[:book_id]) 
     @question = @book.questions.find(params[:id])
+    
+    if user_signed_in?
+      @answer = cookies[:answer_entry]
+      # raise p @answer.inspect   
+      # @answer.scan(/(\d+)\W+(\w+)/).collect { |question_id, answer_text| { :question_id => question_id, :answer_text => answer_text }}
+      # @answer = Hash[ [:question_id, :answer_text].zip(@answer.split(/[\d+[a-z]+]/))]  
+      # @answer = 
+      # raise p @answer.inspect 
+    else
+     cookies[:answer_entry] = nil
+     # raise p cookies[:answer_text]
+   end
   end
   
   def new

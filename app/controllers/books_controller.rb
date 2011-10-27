@@ -3,18 +3,17 @@ class BooksController < ApplicationController
  
   def index
     @books = Book.order('books.position ASC')
-     @tag = Tag.find(params[:tag_id]) if params[:tag_id]
+    @tag = Tag.find(params[:tag_id]) if params[:tag_id]
       if params[:search].blank?
         @books = (@tag ? @tag.books : Book.order('books.position ASC'))
       else
         @books = Book.search_published(params[:search], params[:tag_id])
       end
+      
       respond_to do |format|
         format.html { @books = @books.paginate(:page => params[:page], :per_page => books_per_page) }
         format.rss
-      end  
-      
-      
+      end
   end
 
   def sort

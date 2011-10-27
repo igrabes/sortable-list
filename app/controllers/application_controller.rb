@@ -17,12 +17,6 @@ class ApplicationController < ActionController::Base
 
 
 
-
-
-
-
-
-
 ################################################################### 
   # if user is logged in, return current_user, else return guest_user
     # def current_or_guest_user

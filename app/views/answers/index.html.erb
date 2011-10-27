@@ -1,6 +1,6 @@
 <br \>
 <% @answers.each do |answer| %>
-	<%= answer.id %> |
+	<%= answer.id %>. |
 	Question: <%= answer.question.question %> |
 	Answer: <%= answer.answer %>
 	<%= link_to "View Answer", :controller => "answers", :action => "show", :id => answer.id %>
