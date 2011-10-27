@@ -53,7 +53,7 @@ url: '/books/sort'})
 					<span class="handle">[drag]</span>
 				<% end %> 
 					<%= book.name %>
-					<%= link_to "View Questions for this Book", book_questions_path(book) %> 
+					<%= link_to "View Questions for this Book", book_questions_path(book), :class => "btn primary" %> 
 					<% if admin? %>
 						<%= link_to 'Edit', edit_book_path(book) %>
 						<%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
