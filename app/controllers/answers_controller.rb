@@ -21,21 +21,20 @@ class AnswersController < ApplicationController
       store_location  
       
      if current_user.nil?
-       cookies[:answer_entry] = { :value => params[:answers] }
+       cookies[:answer_entry] = { :value => params[:answers]["1"] }
        # raise p cookies[:answer_entry].inspect 
        deny_access
      else 
        params[:answers].each do |question_id, answer_text|
          next if answer_text.blank?
          question = Question.find(question_id)
-         question.answers.create!(:answer => answer_text, :user_id => current_user )
-         raise p question.answer
+         question.answers.create!(:answer => answer_text, :user_id => current_user ) 
+         flash[:notice] = "You have sucessfully submitted your answer!"
          redirect_to book_questions_path(@book), :notice => "You have successfully submitted your Answer, please answer more!"
        end
       end 
       #need to add a redirect here that will redirect back to the page the user was just on
-      
-      flash[:notice] = "You have sucessfully submitted your answer!"  
+        
   end
   
   def vote_for
