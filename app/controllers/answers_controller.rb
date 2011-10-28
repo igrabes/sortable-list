@@ -21,7 +21,7 @@ class AnswersController < ApplicationController
       store_location  
       
      if current_user.nil?
-       cookies[:answer_entry] = { :value => params[:answers]["1"] }
+       cookies[:answer_entry] =  params[:answers]["1"] 
        # raise p cookies[:answer_entry].inspect 
        deny_access
      else 
