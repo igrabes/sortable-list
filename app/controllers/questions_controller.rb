@@ -10,7 +10,6 @@ class QuestionsController < ApplicationController
     
     if user_signed_in?
       @answer = cookies[:answer_entry]
-      cookies[:answer_entry] = nil
       # raise p @answer.inspect   
       # @answer.scan(/(\d+)\W+(\w+)/).collect { |question_id, answer_text| { :question_id => question_id, :answer_text => answer_text }}
       # @answer = Hash[ [:question_id, :answer_text].zip(@answer.split(/[\d+[a-z]+]/))]  
