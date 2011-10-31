@@ -11,7 +11,7 @@ Books::Application.routes.draw do
   devise_for :users 
  
   
-  resources :books do
+  resources :jobs do
     post :sort, :on => :collection
     post :vote_for, :on => :member
     post :vote_against, :on => :member

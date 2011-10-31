@@ -1,7 +1,7 @@
 class CreateTaggings < ActiveRecord::Migration
   def self.up
     create_table :taggings do |t|
-      t.integer :book_id
+      t.integer :job_id
       t.integer :tag_id
 
       t.timestamps

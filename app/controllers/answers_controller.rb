@@ -9,7 +9,7 @@ class AnswersController < ApplicationController
   end 
   
   def new
-    @book = Book.find(params[:book_id])
+    @job = Job.find(params[:job_id])
      
     respond_to do |format|
       format.html # new.html.erb
@@ -30,7 +30,7 @@ class AnswersController < ApplicationController
          question = Question.find(question_id)
          question.answers.create!(:answer => answer_text, :user_id => current_user ) 
          flash[:notice] = "You have sucessfully submitted your answer!"
-         redirect_to book_questions_path(@book), :notice => "You have successfully submitted your Answer, please answer more!"
+         redirect_to job_questions_path(@job), :notice => "You have successfully submitted your Answer, please answer more!"
        end
       end 
       #need to add a redirect here that will redirect back to the page the user was just on

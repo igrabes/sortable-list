@@ -1,0 +1,32 @@
+<%= form_for(@job, :html => { :class => "form-stacked" } ) do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% @job.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <%= f.label :name %>
+   <%= f.text_field :name %>
+	 <br /> 
+	 <br /> 
+	 
+	 <%= f.label :tag_names %>
+   <%= f.text_field :tag_names %>
+	 <br />
+	 <br />
+ 
+		<%= f.fields_for :questions do |builder| %>
+		<br \>
+			<%= render 'question_fields', :f => builder %>
+	  <% end %> 
+	</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

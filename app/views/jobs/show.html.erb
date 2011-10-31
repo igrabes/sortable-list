@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<b><%= @job.plusminus %></b> |
+  Name:
+  <%= @job.name %>  
+
+	<%= link_to('vote up!', vote_for_job_path(@job), :method => :post) %> 
+	<%= link_to('vote down!', vote_against_job_path(@job), :method => :post) %> 
+
+</p>
+
+
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>

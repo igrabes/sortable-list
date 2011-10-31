@@ -1,12 +1,12 @@
 class QuestionsController < ApplicationController
 
   def index
-    @book = Book.find(params[:book_id])
+    @job = Job.find(params[:job_id])
   end 
   
   def show
-    @book = Book.find(params[:book_id]) 
-    @question = @book.questions.find(params[:id])
+    @job = Job.find(params[:job_id]) 
+    @question = @job.questions.find(params[:id])
     
     if user_signed_in?
       @answer = cookies[:answer_entry]

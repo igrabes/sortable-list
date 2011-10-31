@@ -7,7 +7,7 @@
 <p>Enter your answer here:</p> 
 
 	<p>Please <%= link_to "Sign Up", new_user_registration_path %> or <%= link_to "Login", new_user_session_path %> to submit an answer and get feedback</p>
-	<%= form_for(:answer, :url => book_question_answers_path(@book, @question)) do |f| %>
+	<%= form_for(:answer, :url => job_question_answers_path(@job, @question)) do |f| %>
 	<div class="span4">
 	    <%= text_area_tag "answers[#{@question.id}]", @answer %>
 	 		<%= f.hidden_field :user_id, :value => @current_user %> 
