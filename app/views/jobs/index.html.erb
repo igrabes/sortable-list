@@ -26,47 +26,60 @@
  <% end %>
  <% end %>
 
- <h1>Stage - Listing jobs</h1>
- <div class="content">
-   <div class="side">
- 		<div class="categories">
- 		  <h2>Categories</h2>
- 		  <ul>
- 		  <% for tag in Tag.order("name") %>
- 		    <li><%= link_to_unless(params[:tag_id].to_i == tag.id, tag.display_name, params.merge(:tag_id => tag.id, :page => nil)) %></li>
- 		  <% end %>
- 		  </ul>
- 		</div>
- 	</div>
+  <div class="center_text">
+ 		<h1>An Interview Prep Tool</h1>
+	</div>
+	<header class="masthead">
+		<div class="inner">
+			<div class="container">
+				 <%= image_tag "index_instruction_2.png", :alt => "Instructions", :class => "instruction_img" %>
+			</div>
+		</div>	
+	</header>
+	<div class="row jobs_list">
+		<div class="span11">
+ 	 		<div class="episodes">
+	 		 		<div class="filters">
+	        	<strong>Filtering:</strong>
+	 					<% if @tag %>
+	 	        	<span class="filter"><%= @tag.display_name %> <%= link_to "x", params.merge(:tag_id => nil, :page => nil) %></span>
+	 	        <% end %>
+	 	   		</div>
+	 			<ul id="jobs">
+	 				<% @jobs.each do |job| %>
+			 		<li id="job_<%= job.id %>">
+	 				<% if admin? %> 
+	 					<span class="handle">[drag]</span>
+	 				<% end %> 
+					<%= job.name %>
+					<%= link_to "View Questions for this Job", job_questions_path(job), :class => "btn primary" %> 
+					<% if admin? %>
+						<%= link_to 'Edit', edit_job_path(job) %>
+						<%= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete %>
+						<% end %>
+				 	</li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="span4">
+	  	<div class="content">
+				<div class="side">
+					<div class="categories">
+						<h2>Categories</h2>
+						<ul>
+						<% for tag in Tag.order("name") %>
+	  				<li><%= link_to_unless(params[:tag_id].to_i == tag.id, tag.display_name, params.merge(:tag_id => tag.id, :page => nil)) %></li>
+						<% end %>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
 
- 	<div class="episodes">
- 		 <div class="filters">
-         <strong>Filtering:</strong>
- 					<% if @tag %>
- 	          <span class="filter"><%= @tag.display_name %> <%= link_to "x", params.merge(:tag_id => nil, :page => nil) %></span>
- 	        <% end %>
- 	   </div>
- 		<ul id="jobs">
- 			<% @jobs.each do |job| %>
- 		  	<li id="job_<%= job.id %>">
- 				<% if admin? %> 
- 					<span class="handle">[drag]</span>
- 				<% end %> 
- 					<%= job.name %>
- 					<%= link_to "View Questions for this Job", job_questions_path(job), :class => "btn primary" %> 
- 					<% if admin? %>
- 						<%= link_to 'Edit', edit_job_path(job) %>
- 						<%= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete %>
- 					<% end %>
-
-
-
- 					</li>
- 			<% end %>
- 		</ul>
- 	</div>
- </div>
-
+  
  <% if admin? %>
  	<%= link_to 'New job', new_job_path %>
  <% end %>

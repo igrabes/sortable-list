@@ -1341,7 +1341,7 @@ table .headerSortUp.purple, table .headerSortDown.purple {
 .topbar div > ul, .nav {
   display: block;
   float: left;
-  margin: 0 10px 0 0;
+  margin: 10px 10px 0 0;
   position: relative;
   left: 0;
 }
@@ -1350,11 +1350,12 @@ table .headerSortUp.purple, table .headerSortDown.purple {
   float: left;
 }
 .topbar div > ul a, .nav a {
-  display: block;
-  float: none;
+  display: inline;  
+  float: none; 
   padding: 10px 10px 11px;
-  line-height: 19px;
+  line-height: 19px;   
   text-decoration: none;
+ width: 100px;
 }
 .topbar div > ul a:hover, .nav a:hover {
   color: #ffffff;
@@ -1367,7 +1368,8 @@ table .headerSortUp.purple, table .headerSortDown.purple {
 .topbar div > ul.secondary-nav, .nav.secondary-nav {
   float: right;
   margin-left: 10px;
-  margin-right: 0;
+  margin-right: 0;   
+	margin:auto;
 }
 .topbar div > ul.secondary-nav .menu-dropdown,
 .nav.secondary-nav .menu-dropdown,
@@ -2360,4 +2362,25 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}       
+
+/*** FILTERS ***/
+
+.episodes .filters {
+  margin-bottom: 15px;
+}
+
+.episodes .filter {
+  border: solid 1px #999;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  background-color: #DDD;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.episodes .filter a {
+  padding-left: 5px;
 }
