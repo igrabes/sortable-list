@@ -4,7 +4,7 @@ gem 'rails', '3.0.9'
 gem 'acts_as_list'
 gem 'cancan'
 gem 'will_paginate' 
-gem 'devise'
+gem 'devise', '1.4.5'
 gem 'thumbs_up'
 
 

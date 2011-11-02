@@ -1,4 +1,92 @@
-<h1>Mock Home page</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			  	<title>Preptly</title>
+			<meta name="description" content="Practice for your upcoming interviews with Preptly's free study guide tool. Get an inside look at what you need to know to ace the interview." />
+			<meta name="keywords" content="interview, preparation, study, guide, questions, job, career, headhunters, job-hirers, entry-level" />
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <!--[if IE]>
+            <style type="text/css">
+                #pager { padding-left: 20px }
+                #pager li { float:left }
+            </style>
+        <![endif]-->
+				<%= stylesheet_link_tag 'style', :media => "all" %>
+        <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+        <script type="text/javascript" src="js/jquery.cycle.all.min.js"></script>
+        <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+        <script type="text/javascript" src="js/cufon-yui.js"></script>
+        <script type="text/javascript" src="js/PT_Sans.font.js"></script> 
+        <script type="text/javascript" src="js/custom.js"></script>
+        <script type="text/javascript">
+			Cufon.replace('h2');       
+        </script>
+				<script type="text/javascript">
 
+				  var _gaq = _gaq || [];
+				  _gaq.push(['_setAccount', 'UA-15833249-9']);
+				  _gaq.push(['_trackPageview']);
 
-<p><%= link_to 'Start Prepping!', jobs_path %></p>
+				  (function() {
+				    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				  })();
+
+				</script> 
+    </head>
+<body>
+        <div class="header1">
+							<%= render 'layouts/landing_header'%>
+        </div><!-- .header1 -->
+        <div class="featured">
+		<h2>Interviewing is hard. Prepare with Preptly and get the job!</h2> 
+            <div class="half">
+								<br \>
+								<ul class="features">
+                    <li>
+                        <img class="alignleft" src="images/icons/paper_48.png" alt="thumbs">
+                        <h3>Create A Free Study Guide</h3>
+                        <p>Draft your quality responses to the most common interview questions.</p>
+                    </li>
+<li>
+                        <img class="alignleft" src="images/icons/book_48.png" alt="star">
+                        <h3>Practice Makes Perfect</h3>
+                        <p>We have gathered real interview questions. Now all you need to do is answer and study them!</p>
+                    </li>
+                                 
+                </ul>
+            </div><!-- .half -->
+            <div class="half last">
+					<br \>
+					<br \>
+					<br >
+					
+              <p><%= link_to "Start Prepping!", jobs_path, :class => "button" %></p>
+              <p class="tiny"></p>
+                
+                </div><!-- .slider_wrap -->
+               
+            </div><!-- .half last -->
+        </div><!-- .featured -->
+			
+        <div class="primary1">
+	         	<div class="testimonial">
+               <p>Preptly is the best way to prepare for an interview. It saved me a ton of time and made me confident for my interview.</p>
+               <p class="tiny">— Recent Yelp Hire</p>
+           </div><!-- .testimonials -->.
+			</div><!-- .primary1 -->
+        <div class="footer">
+            <div class="notes">
+                &copy; <%= Date.today.year %> Preptly.
+            </div>
+            <ul class="social">
+                <li><a class="twitter" href="http://twitter.com/#!/Preptly" title="Twitter", target="blank"></a></li>
+                <li><a class="facebook" href="#" title="Facebook"></a></li>
+            </ul>
+						<%= render 'layouts/footer'%>
+        </div><!-- .footer -->
+    </body>
+</html>

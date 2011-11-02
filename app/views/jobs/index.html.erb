@@ -51,7 +51,7 @@
 	 				<% if admin? %> 
 	 					<span class="handle">[drag]</span>
 	 				<% end %> 
-					<%= job.name %>
+					<%= job.name %><br \>
 					<%= link_to "View Questions for this Job", job_questions_path(job), :class => "btn primary" %> 
 					<% if admin? %>
 						<%= link_to 'Edit', edit_job_path(job) %>

@@ -121,7 +121,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
-    warden (1.0.5)
+    warden (1.0.6)
       rack (>= 1.0)
     will_paginate (3.0.0)
     xpath (0.1.4)
@@ -134,7 +134,7 @@ DEPENDENCIES
   acts_as_list
   cancan
   capybara
-  devise
+  devise (= 1.4.5)
   factory_girl_rails
   guard-rspec
   rails (= 3.0.9)
