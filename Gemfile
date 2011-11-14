@@ -6,6 +6,7 @@ gem 'cancan'
 gem 'will_paginate' 
 gem 'devise', '1.4.5'
 gem 'thumbs_up'
+gem 'rake', '0.9.2'
 
 
 # Bundle edge Rails instead:

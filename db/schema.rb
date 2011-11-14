@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20111030235953) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   create_table "jobs", :force => true do |t|
