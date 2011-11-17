@@ -40,7 +40,6 @@
 		<div class="span11">
  	 		<div class="episodes">
 	 		 		<div class="filters">
-	        	<strong>Filtering:</strong>
 	 					<% if @tag %>
 	 	        	<span class="filter"><%= @tag.display_name %> <%= link_to "x", params.merge(:tag_id => nil, :page => nil) %></span>
 	 	        <% end %>
@@ -51,8 +50,10 @@
 	 				<% if admin? %> 
 	 					<span class="handle">[drag]</span>
 	 				<% end %> 
-					<%= job.name %><br \>
-					<%= link_to "View Questions for this Job", job_questions_path(job), :class => "btn primary" %> 
+					<div class= "jobname">
+					<%= job.name %>
+					</div>
+					<%= link_to "View Questions", job_questions_path(job), :class => "btn primary" %> 
 					<% if admin? %>
 						<%= link_to 'Edit', edit_job_path(job) %>
 						<%= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete %>

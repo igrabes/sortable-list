@@ -443,8 +443,26 @@ h6 {
   line-height: 36px;
 }
 h3 {
-  font-size: 18px;
+  font-size: 24px;
 }
+
+.jobquestions {
+  font-size: 26px;
+  font-family: helvetica;
+  color: black;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.jobtitle {
+  font-size: 40px;
+  margin-left: -40px;
+  font-family: helvetica;
+  color: black;
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
 h3 small {
   font-size: 14px;
 }
@@ -480,6 +498,14 @@ ol {
 li {
   line-height: 18px;
   color: #808080;
+  padding-bottom: 8px;
+}
+
+.jobname {
+  padding: 20px;
+  font-family: Arial;
+  font-size: 30px;
+  color: #000;
 }
 ul.unstyled {
   list-style: none;
@@ -1229,7 +1255,7 @@ table .headerSortUp.purple, table .headerSortDown.purple {
  * ---------------------------------------------------------------------------- */
 .topbar {
   height: 40px;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
