@@ -1,8 +1,10 @@
-<br \>
+
+<h1>Find the best answers for the most challenging interview questions....</h1>
+<div id= "answersindex">
 <% @answers.each do |answer| %>
-	<%= answer.id %>. |
+	<%= answer.id %>. )
 	Question: <%= answer.question.question %> |
 	Answer: <%= answer.answer %>
-	<%= link_to "View Answer", :controller => "answers", :action => "show", :id => answer.id %>
-	<br \>
+	<%= link_to "Rate this Answer", :controller => "answers", :action => "show", :id => answer.id %></br></br>
 <% end %>
+</div>
