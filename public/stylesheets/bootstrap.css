@@ -2417,8 +2417,21 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   padding-left: 5px;
 }
 
-#answersindex {
+.answersindexquestion {
   padding-top: 60px;
+  font-size: 30px;
+  color: black;
+  margin-left: auto;
+}
+
+.answersindexanswer {
   font-size: 20px;
   color: black;
+  padding-top: 60px;
+  float: middle;
+}
+
+.rateanswer {
+  font-size: 30px;
+  float:right;
 }
