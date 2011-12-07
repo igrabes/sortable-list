@@ -2418,20 +2418,29 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 }
 
 .answersindexquestion {
-  padding-top: 60px;
-  font-size: 30px;
+  font-size: 20px;
   color: black;
-  margin-left: auto;
+  display: inline;
 }
 
 .answersindexanswer {
   font-size: 20px;
   color: black;
-  padding-top: 60px;
-  float: middle;
+  display: inline;
+  line-height: 150%;
 }
 
 .rateanswer {
-  font-size: 30px;
-  float:right;
+  font-size: 20px;
+  display: inline;
 }
+
+.answervote {
+  font-size: 20px;
+  padding: 20px;
+}
+
+.answervote p {
+  padding: 20px;
+}
+

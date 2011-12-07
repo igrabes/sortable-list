@@ -1,13 +1,14 @@
 
-<h1>Find the best answers for the most challenging interview questions....</h1>
+<h1>Find the best answers for the most challenging interview questions....</h1></br>
 <% @answers.each do |answer| %>
 <div class= "answersindexquestion">
-	<%= answer.id %>. )
-	Question: <%= answer.question.question %> |
+	<b><%= answer.id %>. )
+	Question:</b> <%= answer.question.question %> 
 	</div>
 	<div class= "answersindexanswer">
-	Answer: <%= answer.answer %>
+	<b>Answer:</b> <%= answer.answer %> -->
 	</div>
-	<div class= "rateanswer"><%= link_to "Rate this Answer", :controller => "answers", :action => "show", :id => answer.id %></div>
+	<div class= "rateanswer"><%= link_to "Rate this Answer", :controller => "answers", :action => "show", :id => answer.id %></div></br></br>
 <% end %>
 </div>
+
