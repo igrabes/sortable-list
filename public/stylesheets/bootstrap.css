@@ -661,8 +661,8 @@ textarea,
 select,
 .uneditable-input {
   display: inline-block;
-  width: 210px;
-  height: 18px;
+  width: 410px;
+  height: 40px;
   padding: 4px;
   font-size: 13px;
   line-height: 18px;
@@ -708,7 +708,7 @@ select[multiple] {
   height: inherit;
 }
 textarea {
-  height: auto;
+  height: 100px;
 }
 .uneditable-input {
   background-color: #ffffff;
@@ -2442,5 +2442,41 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 
 .answervote p {
   padding: 20px;
+}
+
+.questionsubmit {
+  font-size: 40px;
+  font-family: 'Walter Turncoat';
+  padding: 2em 0 1em 0;
+}
+
+.enteranswer p {
+  font-size: 25px;
+  padding: 20px 0 20px 0;
+  margin-left: 1em;
+}
+
+.questionbutton {
+  float: right;
+  border: none;
+  margin: 0px 10px 0px 10px;
+  font-family: Helvetica, sans-serif; letter-spacing:-1px; display:inline-block; font-size:50px; line-height:70px;
+  background:url(/images/btn.jpg) 0px 0px repeat-x; color:#fff; text-decoration:none; text-shadow:0px 1px 0px #048ee8; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px; -khtml-border-radius:10px;
+  -moz-box-shadow: 0px 0px 0px rgba(0,0,0,0);
+  -webkit-box-shadow: 0px 0px 0px rgba(0,0,0,0);
+  box-shadow: 0px 0px 0px rgba(0,0,0,0);
+}
+.questionbutton:hover { text-decoration:none; background-position:0px -75px }
+.questionbutton:active { background-position:0px -151px; color:#167db2; text-shadow:0px 1px 0px rgba(255,255,255,0); border-color:#0088ce; 
+  -moz-box-shadow:0px 0px 0px rgba(255,255,255,0);
+  -webkit-box-shadow: 0px 0px 0px rgba(255,255,255,0);
+  box-shadow: 0px 0px 0px rgba(255,255,255,0);
+}
+
+.answercurrentvote {
+  font-size: 30px;
+  padding: 30px 0 0 5px;
+  line-height: 2em;
+  border-bottom: 2px solid;
 }
 
