@@ -11,12 +11,16 @@ Current Votes: <b><%= @answer.plusminus %></b>
 <br \>
 <br \> 
 <br \>
+<div class= "voteup">
 <%= link_to('vote up!', vote_for_job_question_answer_path(:id => @answer.id),  :method => :post) %>
+</div>
+<div class= "votedown">
 <%= link_to('vote down!', vote_against_job_question_answer_path(:id => @answer.id),  :method => :post) %>
-
+</div>
 <br \>
 <br \> 
 <br \> 
-
 </div>
-<%= link_to "Back To Questions", job_question_answers_path %>        
+<div class= "backtoquestions">
+<%= link_to "Back To Questions", job_question_answers_path %>    
+</div>    

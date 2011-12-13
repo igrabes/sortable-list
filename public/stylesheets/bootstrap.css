@@ -2458,16 +2458,28 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 
 .questionbutton {
   float: right;
-  border: none;
-  margin: 0px 10px 0px 10px;
-  font-family: Helvetica, sans-serif; letter-spacing:-1px; display:inline-block; font-size:50px; line-height:70px;
-  background:url(/images/btn.jpg) 0px 0px repeat-x; color:#fff; text-decoration:none; text-shadow:0px 1px 0px #048ee8; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px; -khtml-border-radius:10px;
-  -moz-box-shadow: 0px 0px 0px rgba(0,0,0,0);
-  -webkit-box-shadow: 0px 0px 0px rgba(0,0,0,0);
-  box-shadow: 0px 0px 0px rgba(0,0,0,0);
+  font-family: Helvetica, sans-serif; 
+  background:url(/images/btn.jpg);
+  display:inline-block; 
+  font-size:50px; 
+  line-height:70px;
+  color:#fff; 
+  text-decoration:none; 
+  text-shadow:0px 1px 0px #048ee8; 
+  border-radius:10px; 
+  -moz-border-radius:10px; 
+  -webkit-border-radius:10px; 
+  -khtml-border-radius:10px;
 }
-.questionbutton:hover { text-decoration:none; background-position:0px -75px }
-.questionbutton:active { background-position:0px -151px; color:#167db2; text-shadow:0px 1px 0px rgba(255,255,255,0); border-color:#0088ce; 
+.questionbutton:hover { 
+  text-decoration:none;
+  background-position:0px -75px }
+
+.questionbutton:active { 
+  background-position:0px; 
+  color:#167db2; 
+  text-shadow:0px 1px 0px rgba(255,255,255,0); 
+  border-color:#0088ce; 
   -moz-box-shadow:0px 0px 0px rgba(255,255,255,0);
   -webkit-box-shadow: 0px 0px 0px rgba(255,255,255,0);
   box-shadow: 0px 0px 0px rgba(255,255,255,0);
@@ -2475,8 +2487,35 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 
 .answercurrentvote {
   font-size: 30px;
-  padding: 30px 0 0 5px;
-  line-height: 2em;
+  padding: 2px 0 0 1px;
+  line-height: 190%;
   border-bottom: 2px solid;
 }
 
+.voteup {
+  position: fixed;
+  font-size: 30px;
+  line-height: 120%;
+  left: 850px;
+  top: 210px;
+  width: 150px;
+  padding: 50px 0 0 0;
+  border-right: 3px solid;
+}
+
+.votedown {
+  position: fixed;
+  font-size: 30px;
+  line-height: 120%;
+  left: 1050px;
+  top: 210px;
+  width: 150px;
+  padding: 50px 0 0 0;
+}
+
+.backtoquestions {
+  font-size: 30px;
+  padding: 5px 0px 20px 0px;
+  line-height: 2em;
+  border-top: 2px solid;
+}
