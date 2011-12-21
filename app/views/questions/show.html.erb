@@ -1,18 +1,27 @@
+
+<link href='http://fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet' type='text/css'>
 <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
+<div class="notice"><%= flash[:notice] %></div>
 <% end %>
-<p>This is the Question:</p>
-<%= @question.question %>
-
+<div class="questionsubmit"> <%= @question.question %>
+</div>
+<div class="enteranswer">
 <p>Enter your answer here:</p> 
+</div>
 
+<% if current_user.nil? %>
 	<p>Please <%= link_to "Sign Up", new_user_registration_path %> or <%= link_to "Login", new_user_session_path %> to submit an answer and get feedback</p>
+	<% end %>
 	<%= form_for(:answer, :url => job_question_answers_path(@job, @question)) do |f| %>
 	<div class="span4">
 	    <%= text_area_tag "answers[#{@question.id}]", @answer %>
 	 		<%= f.hidden_field :user_id, :value => @current_user %> 
   </div>
- 		<%= submit_tag "Submit", :class => "btn primary" %>
-<% end %>   
+<div class="questionbutton"> 		
+<%= submit_tag "Submit Answer", :class => "questionbutton" %>
+</div>
+<% end %>
+</div>   
+</div>
 
 

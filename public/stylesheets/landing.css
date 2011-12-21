@@ -45,7 +45,7 @@ input, textarea { border:none; outline:none }
 
 .header, .header1, .primary, .primary1, .featured, .footer { width:960px; margin:0px auto; position:relative; overflow:hidden; text-align:left }
 .header { height:96px; background:url(/images/top_curve.png) 0px bottom no-repeat }
-.brand { text-align:right }
+.brand { text-align:right; }
 .header1 { width:864px; padding:36px 48px 80px; background:url(/images/top_curve_arrow.png) 0px bottom no-repeat }
 .featured { width: 864px; padding:0px 48px; background:#ecf1f6 url(/images/middle_shade.png) 0px 0px repeat-y }
 .primary { width:864px; min-height:70px; padding:84px 48px 0px; background:url(/images/bottom_curve_arrow.png) 0px 0px no-repeat }

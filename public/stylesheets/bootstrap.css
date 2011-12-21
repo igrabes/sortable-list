@@ -231,13 +231,13 @@ body {
   margin-left: 240px;
 }
 a {
-  color: #0069d6;
+  color: #333333;
   text-decoration: none;
   line-height: inherit;
   font-weight: inherit;
 }
 a:hover {
-  color: #00438a;
+  color: black;
   text-decoration: underline;
 }
 .pull-right {
@@ -424,6 +424,9 @@ h1 {
   margin-bottom: 18px;
   font-size: 30px;
   line-height: 36px;
+  padding: 28px 1px 1px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: black;
 }
 h1 small {
   font-size: 18px;
@@ -442,8 +445,26 @@ h6 {
   line-height: 36px;
 }
 h3 {
-  font-size: 18px;
+  font-size: 24px;
 }
+
+.jobquestions {
+  font-size: 26px;
+  font-family: helvetica;
+  color: black;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.jobtitle {
+  font-size: 40px;
+  margin-left: -40px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: black;
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
 h3 small {
   font-size: 14px;
 }
@@ -478,8 +499,17 @@ ol {
 }
 li {
   line-height: 18px;
-  color: #808080;
+  color: black;
 }
+
+.jobname {
+  padding-top: 12px;
+  padding-bottom: 14px;
+  font-family: 'Walter Turncoat', cursive;
+  font-size: 30px;
+}
+
+.jobname 
 ul.unstyled {
   list-style: none;
   margin-left: 0;
@@ -633,8 +663,8 @@ textarea,
 select,
 .uneditable-input {
   display: inline-block;
-  width: 210px;
-  height: 18px;
+  width: 410px;
+  height: 40px;
   padding: 4px;
   font-size: 13px;
   line-height: 18px;
@@ -680,7 +710,7 @@ select[multiple] {
   height: inherit;
 }
 textarea {
-  height: auto;
+  height: 100px;
 }
 .uneditable-input {
   background-color: #ffffff;
@@ -1248,7 +1278,7 @@ table .headerSortUp.purple, table .headerSortDown.purple {
  * ---------------------------------------------------------------------------- */
 .topbar {
   height: 40px;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -1271,10 +1301,10 @@ table .headerSortUp.purple, table .headerSortDown.purple {
 .topbar h3 a, .topbar .brand {
   float: left;
   display: block;
-  padding: 8px 20px 12px;
+  padding: 16px 20px 12px;
   margin-left: -20px;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 200;
   line-height: 1;
 }
@@ -1362,9 +1392,8 @@ table .headerSortUp.purple, table .headerSortDown.purple {
 .topbar div > ul, .nav {
   display: block;
   float: left;
-  margin: 10px 10px 0 0;
+  margin: 10px 10px 0px 0px;
   position: relative;
-  left: 0;
 }
 .topbar div > ul > li, .nav > li {
   display: block;
@@ -1373,10 +1402,14 @@ table .headerSortUp.purple, table .headerSortDown.purple {
 .topbar div > ul a, .nav a {
   display: inline;  
   float: none; 
-  padding: 10px 10px 11px;
-  line-height: 19px;   
+  padding: 20px 20px 20px;
+  line-height: 55px;   
   text-decoration: none;
+<<<<<<< HEAD
  	width: 100px;
+=======
+  font-size: 16px;
+>>>>>>> 2cd0d69288787c8a950ee2dd32ecc4d709fc48e5
 }
 .topbar div > ul a:hover, .nav a:hover {
   color: #ffffff;
@@ -1385,13 +1418,23 @@ table .headerSortUp.purple, table .headerSortDown.purple {
 .topbar div > ul .active > a, .nav .active > a {
   background-color: #222;
   background-color: rgba(0, 0, 0, 0.5);
+  font-size: 20px;
 }
 .topbar div > ul.secondary-nav, .nav.secondary-nav {
   float: right;
+<<<<<<< HEAD
   margin-left: 10px;
   margin-right: 0;
 	padding-top:10px;   
 	margin:auto;
+=======
+  margin-left: 0px;
+  margin-right: auto;
+  font-family: Helvetica;
+  font-size: 16px;
+  color: white;   
+  opacity: 0.7;
+>>>>>>> 2cd0d69288787c8a950ee2dd32ecc4d709fc48e5
 }
 .topbar div > ul.secondary-nav .menu-dropdown,
 .nav.secondary-nav .menu-dropdown,
@@ -2405,4 +2448,107 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 
 .episodes .filter a {
   padding-left: 5px;
+}
+
+.answersindexquestion {
+  font-size: 20px;
+  color: black;
+  display: inline;
+}
+
+.answersindexanswer {
+  font-size: 20px;
+  color: black;
+  display: inline;
+  line-height: 150%;
+}
+
+.rateanswer {
+  font-size: 20px;
+  display: inline;
+}
+
+.answervote {
+  font-size: 20px;
+  padding: 20px;
+}
+
+.answervote p {
+  padding: 20px;
+}
+
+.questionsubmit {
+  font-size: 40px;
+  font-family: 'Walter Turncoat';
+  padding: 2em 0 1em 0;
+}
+
+.enteranswer p {
+  font-size: 25px;
+  padding: 20px 0 20px 0;
+  margin-left: 1em;
+}
+
+.questionbutton {
+  float: right;
+  font-family: Helvetica, sans-serif; 
+  background:url(/images/btn.jpg);
+  display:inline-block; 
+  font-size:50px; 
+  line-height:70px;
+  color:#fff; 
+  text-decoration:none; 
+  text-shadow:0px 1px 0px #048ee8; 
+  border-radius:10px; 
+  -moz-border-radius:10px; 
+  -webkit-border-radius:10px; 
+  -khtml-border-radius:10px;
+}
+.questionbutton:hover { 
+  text-decoration:none;
+  background-position:0px -75px }
+
+.questionbutton:active { 
+  background-position:0px; 
+  color:#167db2; 
+  text-shadow:0px 1px 0px rgba(255,255,255,0); 
+  border-color:#0088ce; 
+  -moz-box-shadow:0px 0px 0px rgba(255,255,255,0);
+  -webkit-box-shadow: 0px 0px 0px rgba(255,255,255,0);
+  box-shadow: 0px 0px 0px rgba(255,255,255,0);
+}
+
+.answercurrentvote {
+  font-size: 30px;
+  padding: 2px 0 0 1px;
+  line-height: 190%;
+  border-bottom: 2px solid;
+}
+
+.voteup {
+  position: fixed;
+  font-size: 30px;
+  line-height: 120%;
+  left: 850px;
+  top: 210px;
+  width: 150px;
+  padding: 50px 0 0 0;
+  border-right: 3px solid;
+}
+
+.votedown {
+  position: fixed;
+  font-size: 30px;
+  line-height: 120%;
+  left: 1050px;
+  top: 210px;
+  width: 150px;
+  padding: 50px 0 0 0;
+}
+
+.backtoquestions {
+  font-size: 30px;
+  padding: 5px 0px 20px 0px;
+  line-height: 2em;
+  border-top: 2px solid;
 }
