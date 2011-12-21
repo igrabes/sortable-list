@@ -44,7 +44,6 @@
 	 	        	<span class="filter"><%= @tag.display_name %> <%= link_to "x", params.merge(:tag_id => nil, :page => nil) %></span>
 	 	        <% end %>
 	 	   		</div>
-<<<<<<< HEAD
 				<table>
 	 				<tbody>
 		 				<% @jobs.each do |job| %>
@@ -64,8 +63,8 @@
 						</td>
 							<% end %> 
 					 	</tr>
-=======
-	 		<ul class="jobs">
+	 	 				<% end %>
+	<ul class="jobs">
 	 				<% @jobs.each do |job| %>
 			 		<li id="job_<%= job.id %>">
 	 				<% if admin? %> 
@@ -78,7 +77,6 @@
 					<% if admin? %>
 						<%= link_to 'Edit', edit_job_path(job) %>
 						<%= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete %>
->>>>>>> 2cd0d69288787c8a950ee2dd32ecc4d709fc48e5
 						<% end %>
 					</tbody>
 				</table>
@@ -93,8 +91,10 @@
 						<ul>
 						<% for tag in Tag.order("name") %>
 	  				<li><%= link_to_unless(params[:tag_id].to_i == tag.id, tag.display_name, params.merge(:tag_id => tag.id, :page => nil)) %></li>
-						<% end %>
+						<% end %>  
+						<% end %> 
 						</ul>
+						
 					</div>
 				</div>
 			</div>
