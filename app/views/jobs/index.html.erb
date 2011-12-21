@@ -44,27 +44,7 @@
 	 	        	<span class="filter"><%= @tag.display_name %> <%= link_to "x", params.merge(:tag_id => nil, :page => nil) %></span>
 	 	        <% end %>
 	 	   		</div>
-				<table>
-	 				<tbody>
-		 				<% @jobs.each do |job| %>
-				 		<tr>
-							<td >
-								<div id="job_name"></div> 
-									<b><%= job.name %></b> 
-								</div>
-								<!-- <div id="view_q"> -->	
-									<%= link_to "View Questions for this Job", job_questions_path(job), :class => "btn primary" %>
-								<!-- </div> --> 
-						</td>
-						<% if admin? %> 
-						<td>
-							<%= link_to 'Edit', edit_job_path(job) %>
-							<%= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete %> 
-						</td>
-							<% end %> 
-					 	</tr>
-	 	 				<% end %>
-	<ul class="jobs">
+	 		<ul class="jobs">
 	 				<% @jobs.each do |job| %>
 			 		<li id="job_<%= job.id %>">
 	 				<% if admin? %> 
@@ -78,11 +58,12 @@
 						<%= link_to 'Edit', edit_job_path(job) %>
 						<%= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete %>
 						<% end %>
-					</tbody>
-				</table>
+				 	</li>
+					<% end %>
+				</ul>
 			</div>
 		</div>
-		
+
 		<div class="span4">
 	  	<div class="content">
 				<div class="side">
@@ -91,10 +72,8 @@
 						<ul>
 						<% for tag in Tag.order("name") %>
 	  				<li><%= link_to_unless(params[:tag_id].to_i == tag.id, tag.display_name, params.merge(:tag_id => tag.id, :page => nil)) %></li>
-						<% end %>  
-						<% end %> 
+						<% end %>
 						</ul>
-						
 					</div>
 				</div>
 			</div>

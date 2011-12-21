@@ -1,7 +1,5 @@
 
-
 <div class= "jobtitle"> <%= @job.name %> </div>
-
 
 <% @job.questions.each do |q| %>
 <div class= "jobquestions"><%= q.question %>
@@ -9,4 +7,4 @@
 	<%= link_to "Submit an Answer", job_question_path(@job.id, q.id), :class => "btn  primary" %>
 	Or
 	<%= link_to "Review Answers", job_question_answers_path(@job.id, q.id), :class => "btn" %>
-<% end %> 
+<% end %>
