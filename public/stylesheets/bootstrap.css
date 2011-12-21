@@ -69,12 +69,13 @@ td {
   font-weight: normal;
   font-style: normal;
   font-size: 100%;
-  line-height: 1;
+  line-height: 0;
   font-family: inherit;
 }
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+table { 
+	border-spacing: 0px;
+	border-collapse: none !important;
+	display:  !important;
 }
 ol, ul {
   list-style: none;
@@ -1080,59 +1081,79 @@ textarea[readonly] {
  * Tables.less
  * Tables for, you guessed it, tabular data
  * ---------------------------------------- */
-table {
+table {   
   width: 100%;
   margin-bottom: 18px;
-  padding: 0;
-  border-collapse: separate;
-  *border-collapse: collapse;
+	border-spacing: 0px !important;
+  border-collapse: none !important;  
+  /**border-collapse: collapse;*/
   /* IE7, collapse table to remove spacing */
 
   font-size: 13px;
-  border: 1px solid #ddd;
+  /*border: 1px solid #ddd; */
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+
+/*table tr job_name {
+	margin-right: 20px;  */
+
+ 	
 }
-table th, table td {
-  padding: 10px 10px 9px;
+table th, table td {  
+  padding: 10px 5px 9px 10px;
   line-height: 18px;
-  text-align: left;
+  text-align: left; 
+	/*margin-bottom:10px;*/
+	/*display: inline-table !important;*/  
+	-moz-border-radius:    10px;
+	-webkit-border-radius: 10px;
+	border-radius:         10px;
 }
 table th {
   padding-top: 9px;
   font-weight: bold;
   vertical-align: middle;
   border-bottom: 1px solid #ddd;
+	-moz-border-radius:    10px;
+	-webkit-border-radius: 10px;
+	border-radius:         10px;
 }
 table td {
   vertical-align: top;
+	/*border-spacing: 0px 0px 0px 0px; */
+	background-color: #EEE; 
+	-moz-border-radius:    10px;
+	-webkit-border-radius: 10px;
+	border-radius:         10px;
 }
 table th + th, table td + td {
   border-left: 1px solid #ddd;
+	/*margin-bottom: 100px;*/
 }
-table tr + tr td {
+table tr + tr td { 
+	border-bottom: 10px;
   border-top: 1px solid #ddd;
 }
 table tbody tr:first-child td:first-child {
-  -webkit-border-radius: 4px 0 0 0;
-  -moz-border-radius: 4px 0 0 0;
-  border-radius: 4px 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  -moz-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
 }
 table tbody tr:first-child td:last-child {
-  -webkit-border-radius: 0 4px 0 0;
-  -moz-border-radius: 0 4px 0 0;
-  border-radius: 0 4px 0 0;
+  -webkit-border-radius: 0 0 0 10px;
+  -moz-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
 }
 table tbody tr:last-child td:first-child {
-  -webkit-border-radius: 0 0 0 4px;
-  -moz-border-radius: 0 0 0 4px;
-  border-radius: 0 0 0 4px;
+  -webkit-border-radius: 0 0 0 0;
+  -moz-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
 }
 table tbody tr:last-child td:last-child {
-  -webkit-border-radius: 0 0 4px 0;
-  -moz-border-radius: 0 0 4px 0;
-  border-radius: 0 0 4px 0;
+  -webkit-border-radius: 0 0 0 0;
+  -moz-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
 }
 .zebra-striped tbody tr:nth-child(odd) td {
   background-color: #f9f9f9;
@@ -1355,7 +1376,7 @@ table .headerSortUp.purple, table .headerSortDown.purple {
   padding: 10px 10px 11px;
   line-height: 19px;   
   text-decoration: none;
- width: 100px;
+ 	width: 100px;
 }
 .topbar div > ul a:hover, .nav a:hover {
   color: #ffffff;
@@ -1368,7 +1389,8 @@ table .headerSortUp.purple, table .headerSortDown.purple {
 .topbar div > ul.secondary-nav, .nav.secondary-nav {
   float: right;
   margin-left: 10px;
-  margin-right: 0;   
+  margin-right: 0;
+	padding-top:10px;   
 	margin:auto;
 }
 .topbar div > ul.secondary-nav .menu-dropdown,

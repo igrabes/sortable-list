@@ -1,11 +1,12 @@
 Books::Application.routes.draw do
   
+  root :to => "pages#index"
   
   match '/index' => 'pages#index'
   match '/about' => 'pages#about'  
   match '/contact' => 'pages#contact' 
 
-  root :to => "pages#index" 
+   
   
   resources :votes
   devise_for :users 

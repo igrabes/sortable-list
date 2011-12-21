@@ -18,23 +18,22 @@ class AnswersController < ApplicationController
   end
   
   def create 
-      store_location  
+      store_location
+      @question = Question.find(params[:question_id]) 
       
      if current_user.nil?
-       cookies[:answer_entry] = params[:answers]["1"]   
+       cookies[:answer_entry] = params[:answers][:value]   
        # raise p cookies[:answer_entry].inspect 
        deny_access
-     else 
+     else
        params[:answers].each do |question_id, answer_text|
          next if answer_text.blank?
          question = Question.find(question_id)
-         question.answers.create!(:answer => answer_text, :user_id => current_user ) 
+         question.answers.create!(:answer => answer_text)
          flash[:notice] = "You have sucessfully submitted your answer!"
          redirect_to job_questions_path(@job), :notice => "You have successfully submitted your Answer, please answer more!"
        end
-      end 
-      #need to add a redirect here that will redirect back to the page the user was just on
-        
+     end
   end
   
   def vote_for
@@ -72,6 +71,9 @@ class AnswersController < ApplicationController
       render :nothing => true, :status => 404
     end
   end 
+    
+  
+
 
 end
          

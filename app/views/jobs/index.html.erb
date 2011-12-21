@@ -45,21 +45,28 @@
 	 	        	<span class="filter"><%= @tag.display_name %> <%= link_to "x", params.merge(:tag_id => nil, :page => nil) %></span>
 	 	        <% end %>
 	 	   		</div>
-	 			<ul id="jobs">
-	 				<% @jobs.each do |job| %>
-			 		<li id="job_<%= job.id %>">
-	 				<% if admin? %> 
-	 					<span class="handle">[drag]</span>
-	 				<% end %> 
-					<%= job.name %><br \>
-					<%= link_to "View Questions for this Job", job_questions_path(job), :class => "btn primary" %> 
-					<% if admin? %>
-						<%= link_to 'Edit', edit_job_path(job) %>
-						<%= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete %>
+				<table>
+	 				<tbody>
+		 				<% @jobs.each do |job| %>
+				 		<tr>
+							<td >
+								<div id="job_name"></div> 
+									<b><%= job.name %></b> 
+								</div>
+								<!-- <div id="view_q"> -->	
+									<%= link_to "View Questions for this Job", job_questions_path(job), :class => "btn primary" %>
+								<!-- </div> --> 
+						</td>
+						<% if admin? %> 
+						<td>
+							<%= link_to 'Edit', edit_job_path(job) %>
+							<%= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete %> 
+						</td>
+							<% end %> 
+					 	</tr>
 						<% end %>
-				 	</li>
-					<% end %>
-				</ul>
+					</tbody>
+				</table>
 			</div>
 		</div>
 		
