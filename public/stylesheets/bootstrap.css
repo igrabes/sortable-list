@@ -425,6 +425,7 @@ h1 {
   line-height: 36px;
   padding: 28px 1px 1px;
   font-family: "Comic Sans MS", cursive, sans-serif;
+  color: black;
 }
 h1 small {
   font-size: 18px;
@@ -457,7 +458,7 @@ h3 {
 .jobtitle {
   font-size: 40px;
   margin-left: -40px;
-  font-family: helvetica;
+  font-family: "Comic Sans MS", cursive, sans-serif;
   color: black;
   padding-top: 80px;
   padding-bottom: 50px;
