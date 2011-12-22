@@ -453,6 +453,7 @@ h3 {
   color: black;
   padding-top: 30px;
   padding-bottom: 10px;
+  line-height: 130%;
 }
 
 .jobtitle {
@@ -462,7 +463,6 @@ h3 {
   color: black;
   padding-top: 80px;
   padding-bottom: 50px;
-  line-height: 125%;
 }
 
 h3 small {
