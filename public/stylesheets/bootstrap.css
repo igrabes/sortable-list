@@ -424,7 +424,7 @@ h1 {
   font-size: 30px;
   line-height: 36px;
   padding: 28px 1px 1px;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: Helvetica Neue;
   color: black;
 }
 h1 small {
@@ -2468,15 +2468,6 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   text-decoration: none;
 }
 
-.answervote {
-  font-size: 20px;
-  padding: 20px;
-}
-
-.answervote p {
-  padding: 20px;
-}
-
 .questionsubmit {
   font-size: 40px;
   font-family: 'Walter Turncoat';
@@ -2526,7 +2517,27 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   border-bottom: 2px solid;
 }
 
-.voteup {
+.answertext {
+  font-size: 25px;
+  padding: 20px 0 80px 0;
+  float: left;
+  line-height: 115%;
+}
+
+.questiontext {
+  font-size: 30px;
+  padding: 40px 0 40px 0;
+}
+
+.voting div voteup votedown {
+  right: 1000px;
+}
+
+.voting:hover {
+  color:red;
+}
+
+.voting div.voteup {
   position: fixed;
   font-size: 30px;
   line-height: 120%;
@@ -2537,7 +2548,11 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   border-right: 3px solid;
 }
 
-.votedown {
+.voting div.voteup:hover {
+  color: blue;
+}
+
+.voting div.votedown {
   position: fixed;
   font-size: 30px;
   line-height: 120%;
@@ -2553,3 +2568,4 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   line-height: 2em;
   border-top: 2px solid;
 }
+
