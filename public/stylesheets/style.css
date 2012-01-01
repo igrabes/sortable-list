@@ -107,7 +107,7 @@
 }  
 
 .instruction_img {
-	border:1px #DDD solid;
+	border-bottom: none
 }
 
 .jobs_list{

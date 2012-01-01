@@ -70,7 +70,7 @@ td {
   font-style: normal;
   font-size: 100%;
   line-height: 1;
-  font-family: inherit;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 table {
   border-collapse: collapse;
@@ -189,7 +189,7 @@ body {
   font-size: 13px;
   font-weight: normal;
   line-height: 18px;
-  color: #404040;
+  color: black;
 }
 .container {
   width: 940px;
@@ -237,7 +237,7 @@ a {
 }
 a:hover {
   color: black;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .pull-right {
   float: right;
@@ -420,10 +420,7 @@ h6 small {
   color: #bfbfbf;
 }
 h1 {
-  margin-bottom: 18px;
   font-size: 30px;
-  line-height: 36px;
-  padding: 28px 1px 1px;
   font-family: Helvetica Neue;
   color: black;
 }
@@ -451,15 +448,14 @@ h3 {
   font-size: 26px;
   font-family: helvetica;
   color: black;
-  padding-top: 30px;
-  padding-bottom: 10px;
+  padding: 30px 0 20px 0;
   line-height: 130%;
 }
 
 .jobtitle {
   font-size: 40px;
   margin-left: -40px;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: black;
   padding-top: 80px;
   padding-bottom: 50px;
@@ -2418,13 +2414,41 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 .episodes .filter a {
   padding-left: 5px;
 }
-
+.papers {
+    background-color: white;
+    height: 350px;
+    padding: 20px;
+    width: 260px;
+    -webkit-box-shadow:
+          1px 1px   0 rgba(0,   0,   0,   0.100),
+          3px 3px   0 rgba(255, 255, 255, 1.0),
+          4px 4px   0 rgba(0,   0,   0,   0.125),
+          6px 6px   0 rgba(255, 255, 255, 1.0),
+          7px 7px   0 rgba(0,   0,   0,   0.150),
+          9px 9px   0 rgba(255, 255, 255, 1.0),
+          10px 10px 0 rgba(0,   0,   0,   0.175);
+    -moz-box-shadow:
+          1px 1px   0 rgba(0,   0,   0,   0.100),
+          3px 3px   0 rgba(255, 255, 255, 1.0),
+          4px 4px   0 rgba(0,   0,   0,   0.125),
+          6px 6px   0 rgba(255, 255, 255, 1.0),
+          7px 7px   0 rgba(0,   0,   0,   0.150),
+          9px 9px   0 rgba(255, 255, 255, 1.0),
+          10px 10px 0 rgba(0,   0,   0,   0.175);
+    box-shadow:
+          1px 1px   0 rgba(0,   0,   0,   0.100),
+          3px 3px   0 rgba(255, 255, 255, 1.0),
+          4px 4px   0 rgba(0,   0,   0,   0.125),
+          6px 6px   0 rgba(255, 255, 255, 1.0),
+          7px 7px   0 rgba(0,   0,   0,   0.150),
+          9px 9px   0 rgba(255, 255, 255, 1.0),
+          10px 10px 0 rgba(0,   0,   0,   0.175);
+}
 .answersindexheader {
   font-size: 2.5em;
   padding: 2em 0em 1em 0em;
   line-height: 120%;
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  border-bottom: 1px solid;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .answersindexcontainer div {
@@ -2519,8 +2543,9 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 
 .answertext {
   font-size: 25px;
-  padding: 20px 0 80px 0;
+  padding: 20px 20px 20px 0;
   float: left;
+  width: 500px;
   line-height: 115%;
 }
 
@@ -2549,7 +2574,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 }
 
 .voting div.voteup:hover {
-  color: blue;
+  color: gray;
 }
 
 .voting div.votedown {
@@ -2563,9 +2588,24 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 }
 
 .backtoquestions {
+  position:fixed;
+  bottom: 200px;
   font-size: 30px;
-  padding: 5px 0px 20px 0px;
-  line-height: 2em;
-  border-top: 2px solid;
+  right: 400px;
+}
+
+.indexheader h1 {
+  font-size: 40px;
+  padding: 30px 0 0 0;
+  text-align: center;
+}
+
+.questionsindexcontainer {
+  padding: 0 0 60px 0;
+}
+
+.userlogin {
+  padding: 40px 0 20px 0 ;
+  
 }
 
