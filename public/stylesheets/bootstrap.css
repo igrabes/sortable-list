@@ -2552,6 +2552,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 .questiontext {
   font-size: 30px;
   padding: 40px 0 40px 0;
+  line-height: 120%;
 }
 
 .voting div voteup votedown {
@@ -2567,7 +2568,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   font-size: 30px;
   line-height: 120%;
   left: 850px;
-  top: 210px;
+  top: 310px;
   width: 150px;
   padding: 50px 0 0 0;
   border-right: 3px solid;
@@ -2582,9 +2583,13 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   font-size: 30px;
   line-height: 120%;
   left: 1050px;
-  top: 210px;
+  top: 310px;
   width: 150px;
   padding: 50px 0 0 0;
+}
+
+.voting div.votedown:hover {
+  color: gray;
 }
 
 .backtoquestions {
